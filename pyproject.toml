@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [tool.setuptools.packages.find]
-include = ["readmeai"]
+include = ["readmeai", "readmeai.*"]
 
 [tool.setuptools.package-data]
 "readmeai" = [
