@@ -9,7 +9,7 @@ _logger = get_logger(__name__)
 
 def get_resource_path(
     file_path: str,
-    module: str = "readmegen.config",
+    module: str = "readmeai.config",
     submodule: str = "settings",
 ) -> Path:
     """Retrieves the path to a resource file within the package.
