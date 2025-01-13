@@ -1,8 +1,8 @@
 """Utility methods to build prompts for LLM text generation."""
 
-from readmegen.config.settings import Settings
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.logger import get_logger
+from readmeai.config.settings import Settings
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.logger import get_logger
 
 _logger = get_logger(__name__)
 

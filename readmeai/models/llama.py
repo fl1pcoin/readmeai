@@ -4,10 +4,10 @@ import uuid
 from typing import Any
 import requests
 
-from readmegen.models.base import BaseModelHandler
-from readmegen.config.settings import ConfigLoader
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.models.tokens import token_handler
+from readmeai.models.base import BaseModelHandler
+from readmeai.config.settings import ConfigLoader
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.models.tokens import token_handler
 
 
 class LLamaHandler(BaseModelHandler):

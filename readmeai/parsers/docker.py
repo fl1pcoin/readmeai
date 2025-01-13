@@ -5,7 +5,7 @@ from typing import Any
 
 import yaml
 
-from readmegen.parsers.base import BaseFileParser
+from readmeai.parsers.base import BaseFileParser
 
 
 class DockerfileParser(BaseFileParser):

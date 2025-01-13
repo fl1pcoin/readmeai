@@ -1,8 +1,8 @@
 from importlib import resources
 from pathlib import Path
 
-from readmegen.errors import FileReadError
-from readmegen.logger import get_logger
+from readmeai.errors import FileReadError
+from readmeai.logger import get_logger
 
 _logger = get_logger(__name__)
 

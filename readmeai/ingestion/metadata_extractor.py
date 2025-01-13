@@ -1,7 +1,7 @@
 import fnmatch
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.ingestion.models import FileContext
+from readmeai.config.settings import ConfigLoader
+from readmeai.ingestion.models import FileContext
 
 
 class MetadataExtractor:

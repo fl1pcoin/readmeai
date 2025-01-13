@@ -8,8 +8,8 @@ from typing import Any
 
 import yaml
 
-from readmegen.errors import FileReadError, FileWriteError
-from readmegen.utils.helpers import is_available
+from readmeai.errors import FileReadError, FileWriteError
+from readmeai.utils.helpers import is_available
 
 
 class FileHandler:

@@ -4,7 +4,7 @@ Parser for gradle dependency files.
 
 import re
 
-from readmegen.parsers.base import BaseFileParser
+from readmeai.parsers.base import BaseFileParser
 
 
 class BuildGradleParser(BaseFileParser):

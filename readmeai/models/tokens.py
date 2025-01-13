@@ -3,8 +3,8 @@
 import structlog
 from tiktoken import Encoding, get_encoding
 
-from readmegen.config.settings import Settings
-from readmegen.logger import get_logger
+from readmeai.config.settings import Settings
+from readmeai.logger import get_logger
 
 _encoding_cache = {}
 

@@ -2,10 +2,10 @@
 
 import colorsys
 
-from readmegen.config.settings import Settings
-from readmegen.readers.git.providers import GitHost
-from readmegen.utils.file_handler import FileHandler
-from readmegen.utils.file_resource import get_resource_path
+from readmeai.config.settings import Settings
+from readmeai.readers.git.providers import GitHost
+from readmeai.utils.file_handler import FileHandler
+from readmeai.utils.file_resource import get_resource_path
 
 _comment = "<!-- default option, no dependency badges. -->\n"
 _package = "readmegen.generators"

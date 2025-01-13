@@ -1,11 +1,11 @@
 from typing import ClassVar
 
-from readmegen.config.constants import LLMService
-from readmegen.config.settings import ConfigLoader
-from readmegen.errors import UnsupportedServiceError
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.models.llama import LLamaHandler
-from readmegen.models.base import BaseModelHandler
+from readmeai.config.constants import LLMService
+from readmeai.config.settings import ConfigLoader
+from readmeai.errors import UnsupportedServiceError
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.models.llama import LLamaHandler
+from readmeai.models.base import BaseModelHandler
 
 
 class ModelFactory:
