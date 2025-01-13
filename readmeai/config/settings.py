@@ -18,16 +18,16 @@ from pydantic import (
 )
 from pydantic_extra_types.color import Color
 
-from readmegen.config.constants import (
+from readmeai.config.constants import (
     BadgeStyleOptions,
     HeaderStyleOptions,
     ImageOptions,
 )
-from readmegen.errors import GitValidationError
-from readmegen.logger import get_logger
-from readmegen.readers.git.providers import GitURL, parse_git_url
-from readmegen.utils.file_handler import FileHandler
-from readmegen.utils.file_resource import get_resource_path
+from readmeai.errors import GitValidationError
+from readmeai.logger import get_logger
+from readmeai.readers.git.providers import GitURL, parse_git_url
+from readmeai.utils.file_handler import FileHandler
+from readmeai.utils.file_resource import get_resource_path
 
 try:
     from typing import Self

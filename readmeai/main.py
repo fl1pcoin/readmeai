@@ -1,16 +1,16 @@
 import tempfile
 
-from readmegen.config.constants import ImageOptions
-from readmegen.config.settings import ConfigLoader
+from readmeai.config.constants import ImageOptions
+from readmeai.config.settings import ConfigLoader
 
-from readmegen.generators.builder import MarkdownBuilder
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.ingestion.pipeline import RepositoryProcessor
-from readmegen.logger import get_logger
-from readmegen.models.factory import ModelFactory
-from readmegen.postprocessor import response_cleaner
-from readmegen.readers.git.repository import load_data
-from readmegen.utils.file_handler import FileHandler
+from readmeai.generators.builder import MarkdownBuilder
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.ingestion.pipeline import RepositoryProcessor
+from readmeai.logger import get_logger
+from readmeai.models.factory import ModelFactory
+from readmeai.postprocessor import response_cleaner
+from readmeai.readers.git.repository import load_data
+from readmeai.utils.file_handler import FileHandler
 
 _logger = get_logger(__name__)
 

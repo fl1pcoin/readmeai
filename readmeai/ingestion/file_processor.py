@@ -1,13 +1,13 @@
 from collections import Counter
 from pathlib import Path
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.ingestion.models import FileContext
-from readmegen.logger import get_logger
-from readmegen.parsers.factory import ParserFactory
-from readmegen.preprocessor.document_cleaner import DocumentCleaner
-from readmegen.preprocessor.file_filter import is_excluded
-from readmegen.preprocessor.file_filter import is_included
+from readmeai.config.settings import ConfigLoader
+from readmeai.ingestion.models import FileContext
+from readmeai.logger import get_logger
+from readmeai.parsers.factory import ParserFactory
+from readmeai.preprocessor.document_cleaner import DocumentCleaner
+from readmeai.preprocessor.file_filter import is_excluded
+from readmeai.preprocessor.file_filter import is_included
 
 _logger = get_logger(__name__)
 

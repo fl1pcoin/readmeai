@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Optional
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.ingestion.models import QuickStart
-from readmegen.logger import get_logger
+from readmeai.config.settings import ConfigLoader
+from readmeai.ingestion.models import QuickStart
+from readmeai.logger import get_logger
 
 _logger = get_logger(__name__)
 

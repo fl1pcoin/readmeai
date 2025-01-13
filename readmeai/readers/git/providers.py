@@ -10,7 +10,7 @@ from pydantic import (
     model_validator,
 )
 
-from readmegen.errors import GitURLError
+from readmeai.errors import GitURLError
 
 
 class GitHost(enum.Enum):

@@ -7,8 +7,8 @@ from typing import Any
 
 import requests
 
-from readmegen.logger import get_logger
-from readmegen.readers.git.providers import GitURL
+from readmeai.logger import get_logger
+from readmeai.readers.git.providers import GitURL
 
 _logger = get_logger(__name__)
 

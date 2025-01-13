@@ -1,10 +1,10 @@
 from pathlib import Path
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.generators.quickstart import QuickStartGenerator
-from readmegen.ingestion.file_processor import FileProcessor
-from readmegen.ingestion.metadata_extractor import MetadataExtractor
-from readmegen.ingestion.models import RepositoryContext
+from readmeai.config.settings import ConfigLoader
+from readmeai.generators.quickstart import QuickStartGenerator
+from readmeai.ingestion.file_processor import FileProcessor
+from readmeai.ingestion.metadata_extractor import MetadataExtractor
+from readmeai.ingestion.models import RepositoryContext
 
 
 class RepositoryProcessor:

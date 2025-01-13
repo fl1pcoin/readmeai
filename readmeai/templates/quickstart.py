@@ -1,10 +1,10 @@
 from pathlib import Path
 from string import Template
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.generators.quickstart import QuickStartGenerator
-from readmegen.ingestion.models import QuickStart, RepositoryContext
-from readmegen.utils.helpers import is_available
+from readmeai.config.settings import ConfigLoader
+from readmeai.generators.quickstart import QuickStartGenerator
+from readmeai.ingestion.models import QuickStart, RepositoryContext
+from readmeai.utils.helpers import is_available
 
 if is_available("tomllib"):  # pragma: no cover
     import tomllib

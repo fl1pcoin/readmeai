@@ -1,7 +1,7 @@
 from typing import Any, ClassVar
 
-from readmegen.config.constants import HeaderStyleOptions
-from readmegen.templates.base import BaseTemplate
+from readmeai.config.constants import HeaderStyleOptions
+from readmeai.templates.base import BaseTemplate
 
 
 class HeaderTemplate(BaseTemplate):

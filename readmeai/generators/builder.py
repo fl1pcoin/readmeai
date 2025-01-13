@@ -1,13 +1,13 @@
 from pathlib import Path
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.generators import badges
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.readers.git.providers import GitHost
-from readmegen.templates.header import HeaderTemplate
-from readmegen.templates.quickstart import QuickStartBuilder
-from readmegen.templates.contributing import ContributingBuilder
-from readmegen.readers.git.metadata import fetch_git_repository_metadata
+from readmeai.config.settings import ConfigLoader
+from readmeai.generators import badges
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.readers.git.providers import GitHost
+from readmeai.templates.header import HeaderTemplate
+from readmeai.templates.quickstart import QuickStartBuilder
+from readmeai.templates.contributing import ContributingBuilder
+from readmeai.readers.git.metadata import fetch_git_repository_metadata
 
 
 class MarkdownBuilder:

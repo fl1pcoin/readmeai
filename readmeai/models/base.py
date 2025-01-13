@@ -6,14 +6,14 @@ from typing import Any
 
 import aiohttp
 
-from readmegen.config.settings import ConfigLoader
-from readmegen.ingestion.models import RepositoryContext
-from readmegen.models.prompts import (
+from readmeai.config.settings import ConfigLoader
+from readmeai.ingestion.models import RepositoryContext
+from readmeai.models.prompts import (
     get_prompt_context,
     set_additional_contexts,
     set_summary_context,
 )
-from readmegen.models.tokens import update_max_tokens
+from readmeai.models.tokens import update_max_tokens
 
 
 class BaseModelHandler(ABC):

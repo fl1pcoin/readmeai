@@ -4,9 +4,9 @@ import shutil
 from pathlib import Path
 
 import git
-from readmegen.errors import GitCloneError
-from readmegen.logger import get_logger
-from readmegen.preprocessor.directory_cleaner import (
+from readmeai.errors import GitCloneError
+from readmeai.logger import get_logger
+from readmeai.preprocessor.directory_cleaner import (
     remove_directory,
     remove_hidden_contents,
 )
