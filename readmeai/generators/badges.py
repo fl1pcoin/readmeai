@@ -8,7 +8,7 @@ from readmeai.utils.file_handler import FileHandler
 from readmeai.utils.file_resource import get_resource_path
 
 _comment = "<!-- default option, no dependency badges. -->\n"
-_package = "readmegen.generators"
+_package = "readmeai.generators"
 _submodule = "svg"
 
 
