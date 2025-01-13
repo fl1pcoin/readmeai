@@ -4,7 +4,7 @@ Parser utilities for Java-based dependency files.
 
 import re
 
-from readmeai.parsers.base import BaseFileParser
+from readmegen.parsers.base import BaseFileParser
 
 
 class MavenParser(BaseFileParser):
@@ -20,7 +20,8 @@ class MavenParser(BaseFileParser):
         """Extract packages names from Maven pom.xml files."""
         try:
             regex = re.compile(
-                r"<dependency>\s*<groupId>([^<]+)</groupId>\s*<artifactId>([^<]+)</artifactId>\s*<version>([^<]+)</version>",
+                r"<dependency>\s*<groupId>([^<]+)</groupId>\s*<artifactId>"
+                r"([^<]+)</artifactId>\s*<version>([^<]+)</version>",
             )
             matches = regex.findall(content)
             dependencies = [

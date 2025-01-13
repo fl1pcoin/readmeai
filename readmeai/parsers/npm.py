@@ -2,7 +2,7 @@
 
 import json
 
-from readmeai.parsers.base import BaseFileParser
+from readmegen.parsers.base import BaseFileParser
 
 
 class PackageJsonParser(BaseFileParser):

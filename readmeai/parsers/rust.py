@@ -4,7 +4,7 @@ Parser for Rust cargo.toml dependency files.
 
 import sys
 
-from readmeai.parsers.base import BaseFileParser
+from readmegen.parsers.base import BaseFileParser
 
 if sys.version_info < (3, 11):
     import tomli as toml
