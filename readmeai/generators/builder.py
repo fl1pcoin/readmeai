@@ -110,7 +110,7 @@ class MarkdownBuilder:
                 break
 
         return self.md.license.format(
-            license_name=self.metadata.license_name,
+            license_name=self.metadata.license_name or "Not found any License",
             default_branch=self.metadata.default_branch,
             host_domain=self.git.host_domain,
             full_name=self.git.full_name,

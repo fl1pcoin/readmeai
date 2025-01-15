@@ -102,7 +102,7 @@ class ContributingBuilder:
             if url:
                 break
 
-        if self._check_url(url):
+        if url and self._check_url(url):
             return template.safe_substitute(
                 contributing_url=url,
                 repo_name=self.git.name,
