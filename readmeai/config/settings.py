@@ -233,7 +233,11 @@ class ConfigLoader:
 
         for key, file_path in settings["files"].items():
             if file_path.endswith(".toml"):
-                file_path = self._get_config_path("settings/" + file_path)
+                file_path = (
+                    self._get_config_path(f"settings/{file_path}")
+                    if key == "prompts"
+                    else get_resource_path(file_path=file_path)
+                )
                 config_dict = self.file_handler.read(file_path)
                 settings[key] = config_dict
                 setattr(self, key, config_dict)
