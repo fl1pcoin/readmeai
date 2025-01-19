@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 from readmeai.config.settings import ConfigLoader
@@ -16,10 +17,10 @@ class MarkdownBuilder:
     """
 
     def __init__(
-        self,
-        config_loader: ConfigLoader,
-        repo_context: RepositoryContext,
-        temp_dir: str,
+            self,
+            config_loader: ConfigLoader,
+            repo_context: RepositoryContext,
+            temp_dir: str,
     ):
         self.config_loader = config_loader
         self.config = config_loader.config
@@ -78,12 +79,16 @@ class MarkdownBuilder:
     @property
     def examples(self) -> str:
         """Generates the README Examples section"""
-        examples_path = ""
-        examples_name = "examples"
-        if "examples" in self.docs:
-            examples_path = "examples"
-        else:
-            examples_name = "Not found any examples"
+        examples_path = next(
+            (path for path in self.docs if path.endswith((
+                "examples",
+                "tutorials",
+                "guides"
+            ))),
+            ""
+        )
+        examples_name = (os.path.basename(examples_path)
+                         or "Not found any examples")
 
         return self.md.examples.format(
             examples=examples_name,
@@ -103,11 +108,13 @@ class MarkdownBuilder:
     @property
     def license(self) -> str:
         """Generates the README License section"""
-        license_path = self.metadata.license_url
-        for path in self.docs:
-            if path.startswith("LICENSE"):
-                license_path = path
-                break
+        license_path = next(
+            (path for path in self.docs if path.startswith((
+                "LICENSE",
+                "LICENCE"
+            ))),
+            self.metadata.license_url
+        )
 
         return self.md.license.format(
             license_name=self.metadata.license_name or "Not found any License",
@@ -120,15 +127,17 @@ class MarkdownBuilder:
     @property
     def documentation(self) -> str:
         """Generates the README Documentation section"""
-        homepage_url = self.metadata.homepage_url
         docs = "docs"
-        if not homepage_url:
+        if not self.metadata.homepage_url:
             if "docs" in self.docs:
                 homepage_url = (f"https://{self.git.host_domain}/"
                                 f"{self.git.full_name}/tree/"
                                 f"{self.metadata.default_branch}/docs")
             else:
                 docs = "Not found any docs"
+                homepage_url = ""
+        else:
+            homepage_url = self.metadata.homepage_url
 
         return self.md.documentation.format(
             repo_name=self.git.name, docs=docs, homepage_url=homepage_url
