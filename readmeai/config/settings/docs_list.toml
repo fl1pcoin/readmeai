@@ -21,5 +21,8 @@ files = [
     "LICENSE-APACHE",
     "LICENSE_APACHE-2.0",
     "LICENSE-MIT",
+    "CITATION.cff",
+    "CITATION",
+    "CITATIONS",
 ]
 
