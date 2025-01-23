@@ -158,32 +158,20 @@ class MarkdownBuilder:
         """Generates the README Citation section"""
         for path in self.docs:
             if path.startswith("CITATION"):
-                citation_text = (
-                    f"If you use this software, please cite it as it is written in the [CITATION]("
-                    f"https://{self.git.host_domain}/{self.git.full_name}/blob/"
-                    f"{self.metadata.default_branch}/{path}) file."
+                return self.md.citation + self.md.citation_v1.format(
+                    host_domain = self.git.host_domain,
+                    full_name = self.git.full_name,
+                    default_branch = self.metadata.default_branch,
+                    citation_path = path,
                 )
-                return self.md.citation.format(citation_text)
 
-        citation_text = (
-            "If you use this software, please cite it as below.\n\n"
-            "### APA format:\n"
-            f"    {self.metadata.owner} ({self.metadata.updated_at.split('-')[0]}). "
-            f"{self.git.name} repository (Version ...) [Computer software]. "
-            f"{self.git.repository}\n\n"
-            "### BibTeX format:\n"
-            f"    @software{{{self.metadata.owner}_{self.git.name}_repository_"
-            f"{self.metadata.updated_at.split('-')[0]},\n"
-            f"      author = {{{self.git.full_name.split('/')[0]}}},\n"
-            "      doi = {},\n"
-            f"      month = {{{self.metadata.updated_at.split('-')[1]}}},\n"
-            f"      title = {{{self.git.name} repository}},\n"
-            f"      url = {{{self.git.repository}}},\n"
-            "      version = {},\n"
-            f"      year = {{{self.metadata.updated_at.split('-')[0]}}}\n"
-            "    }"
+        return self.md.citation + self.md.citation_v2.format(
+            owner = self.metadata.owner,
+            year = self.metadata.updated_at.split('-')[0],
+            repo_name = self.git.name,
+            repository_url = self.git.repository,
+            month = self.metadata.updated_at.split('-')[1],
         )
-        return self.md.citation.format(citation_text)
 
     def build(self) -> str:
         """Builds each section of the README.md file."""
