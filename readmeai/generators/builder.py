@@ -153,6 +153,26 @@ class MarkdownBuilder:
         """Generates the README Contacts section"""
         return self.md.acknowledgments
 
+    @property
+    def citation(self) -> str:
+        """Generates the README Citation section"""
+        for path in self.docs:
+            if path.startswith("CITATION"):
+                return self.md.citation + self.md.citation_v1.format(
+                    host_domain = self.git.host_domain,
+                    full_name = self.git.full_name,
+                    default_branch = self.metadata.default_branch,
+                    citation_path = path,
+                )
+
+        return self.md.citation + self.md.citation_v2.format(
+            owner = self.metadata.owner,
+            year = self.metadata.updated_at.split('-')[0],
+            repo_name = self.git.name,
+            repository_url = self.git.repository,
+            month = self.metadata.updated_at.split('-')[1],
+        )
+
     def build(self) -> str:
         """Builds each section of the README.md file."""
         readme_md_contents = [
@@ -168,6 +188,7 @@ class MarkdownBuilder:
             self.license,
             self.acknowledgments,
             self.contacts,
+            self.citation,
         ]
 
         return "\n".join(readme_md_contents)

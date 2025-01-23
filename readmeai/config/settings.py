@@ -140,6 +140,9 @@ class MarkdownSettings(BaseModel):
     documentation: str
     contacts: str
     acknowledgments: str
+    citation: str
+    citation_v1: str
+    citation_v2: str
 
     model_config = ConfigDict(
         use_enum_values=True, arbitrary_types_allowed=True
