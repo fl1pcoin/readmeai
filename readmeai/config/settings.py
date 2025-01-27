@@ -198,7 +198,7 @@ class Settings(BaseModel):
 
         if header_style == HeaderStyleOptions.CLASSIC.value:
             self.md.header_style = HeaderStyleOptions.CLASSIC
-            self.md.image_width = "70%"
+            self.md.image_width = "20%"
 
         return self
 
