@@ -28,7 +28,7 @@ class ImageOptions(str, enum.Enum):
     """
 
     ITMO_LOGO = (
-        "https://itmo.ru/file/pages/213/logo_na_plashke_russkiy_belyy.png"
+        "https://raw.githubusercontent.com/aimclub/open-source-ops/7de1e1321389ec177f236d0a5f41f876811a912a/badges/ITMO_badge.svg"
     )
 
 
