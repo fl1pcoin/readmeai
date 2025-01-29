@@ -95,7 +95,7 @@ class MarkdownBuilder:
             default_branch=self.metadata.default_branch,
             host_domain=self.git.host_domain,
             full_name=self.git.full_name,
-            examples_path=examples_path,
+            examples_path=examples_path.replace(os.sep, "/"),
         )
 
     @property
