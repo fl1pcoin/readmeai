@@ -38,3 +38,14 @@ class LLMService(str, enum.Enum):
     """
 
     OLLAMA = "llama"
+    OPENAI = "openai"
+    VSEGPT = "vsegpt"
+
+
+class ServiceAuthKeys(str, enum.Enum):
+    """
+    Environment variable names associated with a LLM API key.
+    """
+
+    OPENAI_API_KEY = "OPENAI_API_KEY"
+    VSE_GPT_KEY = "VSE_GPT_KEY"
