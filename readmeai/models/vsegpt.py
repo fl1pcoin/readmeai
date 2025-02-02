@@ -1,5 +1,6 @@
 import os
 from typing import Any
+from dotenv import load_dotenv
 
 import openai
 
@@ -20,6 +21,7 @@ class OpenAIHandler(BaseModelHandler):
             config_loader: ConfigLoader,
             context: RepositoryContext,
     ) -> None:
+        load_dotenv()
         super().__init__(config_loader, context)
         self._model_settings()
 
@@ -28,17 +30,23 @@ class OpenAIHandler(BaseModelHandler):
         self.temperature = self.config.llm.temperature
         self.tokens = self.config.llm.tokens
 
-        if self.config.llm.api == LLMService.OPENAI.name:
+        if self.config.llm.api == LLMService.OPENAI.value:
             self.client = openai.OpenAI(
                 base_url="https://api.openai.com/v1",
                 api_key=os.getenv("OPENAI_API_KEY")
             )
 
-        elif self.config.llm.api == LLMService.VSEGPT.name:
+        elif self.config.llm.api == LLMService.VSEGPT.value:
             self.client = openai.OpenAI(
                 base_url="https://api.vsegpt.ru/v1",
                 api_key=os.getenv("VSE_GPT_KEY")
             )
+
+    def _build_payload(
+            self, prompt: str, tokens: int, temperature: float
+    ) -> dict:
+        """Build payload for POST request to OpenAI API."""
+        ...
 
     def _make_request(
             self,
