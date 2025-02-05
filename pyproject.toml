@@ -11,7 +11,7 @@ dependencies = [
     "aiohttp==3.11.11",
     "gitdb==4.0.11",
     "gitpython==3.1.43",
-    "openai==1.61.0",
+    "openai==1.58.1",
     "PyYAML==6.0.2",
     "pydantic-extra-types==2.9.0",
     "pydantic==2.10.5",
