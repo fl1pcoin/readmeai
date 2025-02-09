@@ -132,5 +132,5 @@ class QuickStartBuilder:
         )
         return template.safe_substitute(
             usage_instructions=f"Run {self.git.name} using the following "
-            f"command:\n{usage_commands.lstrip()}"
+            f"command:\n \n {usage_commands.lstrip()}"
         )
