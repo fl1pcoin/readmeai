@@ -1,8 +1,11 @@
 import tempfile
+from typing import Optional, Union
 
 from readmeai.config.constants import ImageOptions
+from readmegen_article.config.settings import ArticleConfigLoader
 from readmeai.config.settings import ConfigLoader
 
+from readmegen_article.generators.builder import ArticleMarkdownBuilder
 from readmeai.generators.builder import MarkdownBuilder
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.ingestion.pipeline import RepositoryProcessor
@@ -15,7 +18,10 @@ from readmeai.utils.file_handler import FileHandler
 _logger = get_logger(__name__)
 
 
-def readme_generator(config: ConfigLoader, output_file: str) -> None:
+def readme_generator(
+        config: Union[ConfigLoader, ArticleConfigLoader], 
+        output_file: str, article: Optional[str]
+) -> None:
     """Processes the repository and builds the README file."""
 
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -30,25 +36,51 @@ def readme_generator(config: ConfigLoader, output_file: str) -> None:
         log_repository_context(context)
 
         llm = ModelFactory.get_backend(config, context)
-        responses = llm.batch_request()
 
-        (
-            file_summaries,
-            core_features,
-            overview,
-        ) = responses
+        if article is None:
+            responses = llm.batch_request()
 
-        config.config.md.overview = config.config.md.overview.format(
-            response_cleaner.process_markdown(overview)
-        )
-        config.config.md.core_features = config.config.md.core_features.format(
-            response_cleaner.process_markdown(core_features)
-        )
+            (
+                file_summaries,
+                core_features,
+                overview,
+            ) = responses
+
+            config.config.md.overview = config.config.md.overview.format(
+                response_cleaner.process_markdown(overview)
+            )
+            config.config.md.core_features = config.config.md.core_features.format(
+                response_cleaner.process_markdown(core_features)
+            )
+
+        else:
+            responses = llm.article_batch_request(article)
+
+            (
+                file_summary,
+                pdf_summary,
+                overview,
+                content,
+                algorithms,
+            ) = responses
+
+            config.config.md.overview = config.config.md.overview.format(
+                response_cleaner.process_markdown(overview)
+            )
+            config.config.md.content = config.config.md.content.format(
+                response_cleaner.process_markdown(content)
+            )
+            config.config.md.algorithms = config.config.md.algorithms.format(
+                response_cleaner.process_markdown(algorithms)
+            )
 
         if config.config.md.image in [None, "", ImageOptions.ITMO_LOGO.value]:
             config.config.md.image = ImageOptions.ITMO_LOGO.value
 
-        readme_md_content = MarkdownBuilder(config, context, temp_dir).build()
+        if article is None:
+            readme_md_content = MarkdownBuilder(config, context, temp_dir).build()
+        else:
+            readme_md_content = ArticleMarkdownBuilder(config).build()
 
         FileHandler().write(output_file, readme_md_content)
 

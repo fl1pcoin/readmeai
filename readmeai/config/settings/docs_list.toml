@@ -9,6 +9,7 @@ directories = [
 extensions = [
     "md",
     "rst",
+    "pdf",
 ]
 
 files = [
