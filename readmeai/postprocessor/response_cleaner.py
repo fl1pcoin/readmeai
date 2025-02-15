@@ -12,7 +12,7 @@ def process_markdown(text):
     text = re.sub(r"^[\s]*[-*]\s+", "", text, flags=re.MULTILINE)
 
     # Remove **
-    text = re.sub(r'^\*\*', '', text)
+    text = re.sub(r'^\*\*', '', text, flags=re.MULTILINE)
 
     # Preserve valid bold and italic formatting
     # This regex handles nested bold and italic formatting
