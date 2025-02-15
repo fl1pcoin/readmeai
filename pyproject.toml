@@ -21,6 +21,8 @@ dependencies = [
     "tenacity==8.5.0",
     "tiktoken==0.8.0",
     "tomli==2.2.1",
+    "pdfminer.six==20231228",
+    "aspose-pdf==25.1.0",
 ]
 
 [tool.setuptools.packages.find]
