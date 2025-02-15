@@ -13,10 +13,10 @@ _logger = get_logger(__name__)
 class ArticleFinder:
     """Collects all paths to supposed articles"""
 
-    def __init__(self, config: ArticleConfigLoader, repo_context: RepositoryContext, url: Optional[str] = None) -> None:
+    def __init__(self, config: ArticleConfigLoader, repo_context: RepositoryContext, pdf_source: Optional[str] = None) -> None:
         self.config: ArticleConfigLoader = config
         self.docs: List[str] = repo_context.docs_paths
-        self.url: Optional[str] = url
+        self.pdf_source: Optional[str] = pdf_source
 
     @property
     def get_pdf_paths(self) -> List[str]:
@@ -24,7 +24,7 @@ class ArticleFinder:
         Collects all paths to PDF files from:
         - Local files ending with .pdf
         - PDF files found in one or more readme.md
-        - PDF files from the provided URL (if available)
+        - PDF file from the provided URL (if available) or file path
         """
 
         pdf_paths = [f"{self.config.git.name}/{path}" for path in self.docs if path.endswith(".pdf")]
@@ -34,11 +34,13 @@ class ArticleFinder:
             pdf_links = self.extract_pdf_links_from_readme(readme_path)
             pdf_paths.extend(pdf_links)
 
-        if self.url:
-            pdf_file = self.fetch_pdf_from_url(self.url)
-            if pdf_file:
-                pdf_paths.append(pdf_file)
-
+        if self.pdf_source:
+            if self.pdf_source.lower().startswith("http"):
+                pdf_file = self.fetch_pdf_from_url(self.pdf_source)
+                if pdf_file:
+                    pdf_paths.append(pdf_file)
+            elif os.path.isfile(self.pdf_source) and self.pdf_source.lower().endswith('.pdf'):
+                pdf_paths.append(self.pdf_source)
         return pdf_paths
 
     def extract_pdf_links_from_readme(self, readme_path: str) -> List[str]:
