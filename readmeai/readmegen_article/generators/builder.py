@@ -1,5 +1,5 @@
-from readmegen_article.config.settings import ArticleConfigLoader
-from readmegen_article.templates.header import ArticleHeaderTemplate
+from readmeai.readmegen_article.config.settings import ArticleConfigLoader
+from readmeai.readmegen_article.templates.header import ArticleHeaderTemplate
 
 
 class ArticleMarkdownBuilder:

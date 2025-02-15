@@ -3,7 +3,7 @@ import re
 import requests
 from typing import List, Optional
 from tempfile import NamedTemporaryFile
-from readmegen_article.config.settings import ArticleConfigLoader
+from readmeai.readmegen_article.config.settings import ArticleConfigLoader
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.logger import get_logger
 

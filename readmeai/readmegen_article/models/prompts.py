@@ -2,7 +2,7 @@
 
 from typing import Dict
 
-from readmegen_article.config.settings import ArticleSettings
+from readmeai.readmegen_article.config.settings import ArticleSettings
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.logger import get_logger
 

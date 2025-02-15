@@ -2,10 +2,10 @@ import tempfile
 from typing import Optional, Union
 
 from readmeai.config.constants import ImageOptions
-from readmegen_article.config.settings import ArticleConfigLoader
+from readmeai.readmegen_article.config.settings import ArticleConfigLoader
 from readmeai.config.settings import ConfigLoader
 
-from readmegen_article.generators.builder import ArticleMarkdownBuilder
+from readmeai.readmegen_article.generators.builder import ArticleMarkdownBuilder
 from readmeai.generators.builder import MarkdownBuilder
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.ingestion.pipeline import RepositoryProcessor
