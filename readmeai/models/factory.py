@@ -5,6 +5,7 @@ from readmeai.config.settings import ConfigLoader
 from readmeai.errors import UnsupportedServiceError
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.models.llama import LLamaHandler
+from readmeai.models.vsegpt import OpenAIHandler
 from readmeai.models.base import BaseModelHandler
 
 
@@ -15,6 +16,8 @@ class ModelFactory:
 
     _model_map: ClassVar[dict] = {
         LLMService.OLLAMA.value: LLamaHandler,
+        LLMService.VSEGPT.value: OpenAIHandler,
+        LLMService.OPENAI.value: OpenAIHandler,
     }
 
     @staticmethod
