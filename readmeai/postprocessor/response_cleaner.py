@@ -11,6 +11,9 @@ def process_markdown(text):
     # Remove unmatched bullets or hyphens at the beginning of lines
     text = re.sub(r"^[\s]*[-*]\s+", "", text, flags=re.MULTILINE)
 
+    # Remove **
+    text = re.sub(r'^\*\*', '', text, flags=re.MULTILINE)
+
     # Preserve valid bold and italic formatting
     # This regex handles nested bold and italic formatting
     text = re.sub(
