@@ -7,9 +7,9 @@ from typing import Any, Optional
 import aiohttp
 from typing import Union
 
-from readmegen_article.parser.article_finder import ArticleFinder
-from readmegen_article.parser.pdf_parser import PdfParser
-from readmegen_article.config.settings import ArticleConfigLoader
+from readmeai.readmegen_article.parser.article_finder import ArticleFinder
+from readmeai.readmegen_article.parser.pdf_parser import PdfParser
+from readmeai.readmegen_article.config.settings import ArticleConfigLoader
 from readmeai.config.settings import ConfigLoader
 from readmeai.ingestion.models import RepositoryContext
 from readmeai.models.prompts import (
@@ -17,7 +17,7 @@ from readmeai.models.prompts import (
     set_additional_contexts,
     set_summary_context,
 )
-from readmegen_article.models.prompts import (
+from readmeai.readmegen_article.models.prompts import (
     get_prompt_context_article,
     set_additional_contexts_article,
     set_summary_context_article,
