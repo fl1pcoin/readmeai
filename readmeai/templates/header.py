@@ -11,9 +11,6 @@ class HeaderTemplate(BaseTemplate):
 
     HEADER_TEMPLATES: ClassVar[dict] = {
         HeaderStyleOptions.CLASSIC: """\
-<p align="{align}">
-    <img src="{image}" align="{align}" width="{image_width}">
-</p>
 <p align="{align}"><h1 align="{align}">{repo_name}</h1></p>
 <p align="{align}">\n\t{shields_icons}</p>
 <p align="{align}">{badges_tech_stack_text}</p>
