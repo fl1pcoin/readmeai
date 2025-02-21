@@ -16,7 +16,7 @@ dependencies = [
     "pdfminer.six==20231228",
     "PyYAML==6.0.2",
     "pydantic-extra-types==2.9.0",
-    "pydantic==2.10.5",
+    "pydantic==2.9.2",
     "python-dotenv==1.0.1",
     "requests==2.32.3",
     "structlog==24.4.0",
