@@ -244,7 +244,6 @@ class ConfigLoader:
                 config_dict = self.file_handler.read(file_path)
                 settings[key] = config_dict
                 setattr(self, key, config_dict)
-                _logger.info(f"Configuration file loaded: {file_path}")
 
         return settings
 
