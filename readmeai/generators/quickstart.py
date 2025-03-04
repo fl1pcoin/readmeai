@@ -20,6 +20,21 @@ class QuickStartGenerator:
     default_commands: dict = field(init=False)
 
     def __post_init__(self):
+        """
+Initializes instance attributes after the object has been created.
+
+    This method is called automatically after the instance is initialized. 
+    It sets up the tools, language names, and default commands based on the 
+    configuration provided.
+
+    Attributes:
+        tools: A dictionary containing tool configurations.
+        language_names: A dictionary of language names from the configuration.
+        default_commands: A dictionary of default commands from the tools.
+
+    Returns:
+        None
+    """
         self.tools = self.config.tool_config
         self.language_names = self.config.languages.get("language_names", {})
         self.default_commands = self.tools.get("default", {})

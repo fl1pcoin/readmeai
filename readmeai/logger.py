@@ -29,6 +29,24 @@ class Logger:
     """
 
     def __init__(self) -> None:
+        """
+Initializes a new instance of the class.
+
+    This method sets up the logging configuration by creating an instance of 
+    LoggingConfig and initializing various attributes related to logging, 
+    such as log level, indentation, padding for events, and whether to use 
+    JSON format for logging.
+
+    Attributes:
+        log_config: The logging configuration object.
+        log_level: The level of logging to be used.
+        indent: The number of spaces to use for indentation in logs.
+        pad_event: The padding size for events in logs.
+        use_json: A flag indicating whether to format logs in JSON.
+
+    Returns:
+        None
+    """
         self.log_config: LoggingConfig = LoggingConfig()
         self.log_level: str = self.log_config.log_level
         self.indent: int = self.log_config.indent

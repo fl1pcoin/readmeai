@@ -22,6 +22,21 @@ class MarkdownBuilder:
             repo_context: RepositoryContext,
             temp_dir: str,
     ):
+        """
+Initializes the class with configuration and repository context.
+
+    This method sets up the instance by loading the configuration, 
+    repository context, and temporary directory. It also initializes 
+    various attributes related to the configuration and repository.
+
+    Args:
+        config_loader: An object responsible for loading configuration settings.
+        repo_context: An object that contains context information about the repository.
+        temp_dir: A string representing the path to the temporary directory.
+
+    Returns:
+        None
+    """
         self.config_loader = config_loader
         self.config = config_loader.config
         self.deps = repo_context.dependencies
