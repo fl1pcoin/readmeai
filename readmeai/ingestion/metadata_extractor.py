@@ -10,6 +10,17 @@ class MetadataExtractor:
     """
 
     def __init__(self, config: ConfigLoader) -> None:
+        """
+Initializes the instance with the provided configuration.
+
+    This method sets up the instance by storing the given configuration object.
+
+    Args:
+        config: The configuration loader instance that contains the necessary settings.
+
+    Returns:
+        None
+    """
         self.config = config
 
     def extract_metadata(

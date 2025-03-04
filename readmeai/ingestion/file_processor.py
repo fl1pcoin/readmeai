@@ -18,6 +18,22 @@ class FileProcessor:
     """
 
     def __init__(self, config: ConfigLoader):
+        """
+Initializes the class with the provided configuration.
+
+    This method sets up the instance by loading configuration settings 
+    from the provided config object. It initializes the document cleaner 
+    and sets up lists for ignored documents and documents to process, 
+    as well as language names.
+
+    Args:
+        config: The configuration loader object containing settings 
+                for ignored documents, documents to process, and 
+                language names.
+
+    Returns:
+        None
+    """
         self.config = config
         self.document_cleaner = DocumentCleaner()
         self.ignore_list = config.ignore_list.get("ignore_list", [])
